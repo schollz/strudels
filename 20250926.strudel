@@ -1,0 +1,20 @@
+samples({
+  amen: '30_cat_&_hat.wav'
+}, 'https://schollz.com/limewax/');
+
+setCps(165/60/4)
+
+$: s("amen/8").fit()
+  .scrub(irand(16).div(16).seg(8)
+  .rib("<5 21>",2)
+  )
+  .almostNever(ply("2 | 4 | 8"))
+  .orbit(2).gain(0.2)
+  ._scope()
+
+
+$: note("<c1 g#1 f1@2>/2")
+   .struct("1@5 1@3").lpenv(7).lpa(2)
+   .seg(1).s("supersaw").lpf(200)
+   ._scope()
+
